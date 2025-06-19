@@ -1,8 +1,8 @@
 class Task:
-    def __init__(self, title, tags=[]):
+    def __init__(self, title, tags=None):
         self.title = title
         self.status = "pending"
-        self.tags = tags
+        self.tags = tags if tags is not None else []
 
     def complete(self):
         self.status = "done"
