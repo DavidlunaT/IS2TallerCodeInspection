@@ -1,5 +1,5 @@
 class Task:
-    def __init__(self, title, tags=[]):  # ❌ BUG: mutable default argument
+    def __init__(self, title, tags=[]):
         self.title = title
         self.status = "pending"
         self.tags = tags

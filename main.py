@@ -9,23 +9,25 @@ def main():
         if option == "1":
             title = input("Task title: ")
             t = Task(title)
-            t.status = "not done"  # ❌ CODE SMELL: Acceso directo a atributo
+            t.status = "not done"  
             tasks.append(t)
 
         elif option == "2":
-            for i in range(len(tasks)):
-                print(tasks[i])  # ❌ MALA PRÁCTICA: no usar enumerate
+            for i, task in enumerate(tasks, 1):
+                print(f"{i}. {task}")
 
         elif option == "3":
             try:
                 idx = int(input("Task number to complete: ")) - 1
                 tasks[idx].complete()
-            except:
-                print("Something went wrong")  # ❌ CODE SMELL: captura genérica
+            except (ValueError, IndexError):
+                print("Something went wrong")  
 
         elif option == "4":
             break
 
         else:
             print("Invalid option")
+
+            
 main()
